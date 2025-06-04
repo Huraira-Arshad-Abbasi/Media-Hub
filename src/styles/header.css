@@ -1,0 +1,40 @@
+.container{
+    min-height: 85vh;
+    width: 100%;
+    /* background: url('/public/picture.jpg'); */
+    background: url('https://cdn.pixabay.com/index/2024/09/05/05-31-08-195_1440x550.jpg');
+    background: url('https://cdn.pixabay.com/photo/2016/10/20/18/35/earth-1756274_640.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.header__content{
+    width: 70%;
+    /* background: #c81616ae; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    margin: auto;
+}
+.header__content > h1{
+    font-size: 32px;
+    line-height: 48px;
+    font-weight: 700;
+    font-family: Open Sans, system-ui;
+}
+.header__content > h2{
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+.seachbar{
+    width: 90%;
+    height: 3.5rem;
+    margin-right: auto;
+}
