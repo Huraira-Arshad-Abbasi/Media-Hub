@@ -1,14 +1,22 @@
 import '../styles/search.css'
-export default function Search() {
+
+export default function Search () {
   return (
-    <div className="Search__box">
-      <input type="text" placeholder='Search here' />
-      <div className="dropdown">
-        <button className="dropbtn">All</button>
-        <div className="dropdown-content">
-          <a href="#">Images</a>
-          <a href="#">Videos</a>
-          <a href="#">Audios</a>
+    <div className='search__box'>
+      <input
+        type='text'
+        placeholder='Search here...'
+        className='search-input'
+      />
+      <div className='btn__container'>
+        <select className='dropdown'>
+          <option value='images'>All</option>
+          <option value='images'>Image</option>
+          <option value='video'>Video</option>
+          <option value='audio'>Audio</option>
+        </select>
+        <div className='search__button'>
+          <button>Search</button>
         </div>
       </div>
     </div>

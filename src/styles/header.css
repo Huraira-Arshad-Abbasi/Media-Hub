@@ -15,11 +15,10 @@
 }
 .header__content{
     width: 70%;
-    /* background: #c81616ae; */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
     margin: auto;
 }
 .header__content > h1{
@@ -34,7 +33,6 @@
     margin-bottom: 24px;
 }
 .seachbar{
-    width: 90%;
+    width: 70%;
     height: 3.5rem;
-    margin-right: auto;
 }

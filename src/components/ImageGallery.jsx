@@ -17,6 +17,8 @@ export default function ImageGallery() {
           }
         })
         setImages(response.data)
+        console.log(response.data);
+        
 
       } catch (error) {
         console.error('Error fetching images:', error);
@@ -26,12 +28,12 @@ export default function ImageGallery() {
       }
     }
     fetchImages()
-  }, [])
-
+  },[])
 
   if (loading) {
     return <Loader />
   }
+  
   return (
     <div className='galleryContainer'>
       {
