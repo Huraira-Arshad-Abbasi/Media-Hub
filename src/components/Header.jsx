@@ -11,7 +11,6 @@ const Header = () => {
             <Search />
           </div>
         </div>
-
       </div>
     </div>
   )

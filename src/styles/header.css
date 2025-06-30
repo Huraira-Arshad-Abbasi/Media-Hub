@@ -1,11 +1,13 @@
 .container{
     min-height: 85vh;
     width: 100%;
+    background-color: #020000;
     /* background: url('/public/picture.jpg'); */
     background: url('https://cdn.pixabay.com/index/2024/09/05/05-31-08-195_1440x550.jpg');
     background: url('https://cdn.pixabay.com/photo/2016/10/20/18/35/earth-1756274_640.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     color: white;
     position: relative;
     display: flex;
@@ -35,4 +37,17 @@
 .seachbar{
     width: 70%;
     height: 3.5rem;
+}
+
+/* media quries */
+
+@media  screen and (max-width: 1000px) {
+    .header__content{
+        width: 90%;
+        /* background: #000; */
+    }
+    .seachbar{
+        width: 100%;
+
+    }
 }

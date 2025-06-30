@@ -32,7 +32,6 @@ export default function Navbar() {
             <div className="about">
                 <a href="">About</a>
             </div>
-            
         </nav>
     )
 }

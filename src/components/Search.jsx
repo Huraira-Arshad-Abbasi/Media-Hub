@@ -1,22 +1,33 @@
+import { useSearch } from '../context/SearchContext'
 import '../styles/search.css'
+import { useState } from 'react'
+
 
 export default function Search () {
+  const [Localsearch , setLocalSearch] = useState({term: '', type: 'images'})
+  const {setSearch} = useSearch()
+  const handleSearch = () =>{
+    setSearch(Localsearch)
+  }
   return (
     <div className='search__box'>
       <input
         type='text'
+        value={Localsearch.term}
+        onChange={(e) => setLocalSearch({ ...Localsearch, term: e.target.value })}
         placeholder='Search here...'
         className='search-input'
       />
       <div className='btn__container'>
-        <select className='dropdown'>
-          <option value='images'>All</option>
-          <option value='images'>Image</option>
-          <option value='video'>Video</option>
-          <option value='audio'>Audio</option>
+        <select value={Localsearch.type} 
+        onChange={(e) => setLocalSearch({ ...Localsearch, type: e.target.value })} 
+        className='dropdown'>
+          <option  value='Images'>Images</option>
+          <option value='Videos'>Videos</option>
+          <option value='Audios'>Audios</option>
         </select>
         <div className='search__button'>
-          <button>Search</button>
+          <button onClick={handleSearch}>Search</button>
         </div>
       </div>
     </div>

@@ -1,24 +1,27 @@
-// import React from 'react';
-import '../styles/mediaItem.css'; // Import the external CSS
-
-function MediaItem({ url, alt, type }) {
+import { useSearch } from '../context/SearchContext'
+import Header from './Header'
+import '../styles/mediaItem.css' // Import the external CSS
+import ImageGallery from './ImageGallery'
+import VideoGallery from './VideoGallery'
+import AudioGallery from './AudioGallery'
+function MediaItem () {
+  const { search } = useSearch()
+  const { term, type } = search
+  // console.log(term, type, "hellow from item");
+  
   return (
-    <div className="media-container">
-      {type === 'image' && <img src={url} alt={alt} className="media-item" />}
-      {type === 'video' && (
-        <video controls className="media-item">
-          <source src={url} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      )}
-      {type === 'audio' && (
-        <audio controls className="media-item">
-          <source src={url} type="audio/mp3" />
-          Your browser does not support the audio element.
-        </audio>
-      )}
+    <div>
+      <Header />
+      <div className="mediaGallery">
+        <h1>{type}</h1>
+        <div className="gallery">
+          {type === 'Images' && <ImageGallery term={term} />}
+          {type === 'Videos' && <VideoGallery/>}
+          {type === 'Audios' && <AudioGallery/>}
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default MediaItem;
+export default MediaItem
