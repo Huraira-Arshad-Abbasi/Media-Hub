@@ -17,11 +17,11 @@
 .search-input {
     width: 100%;
     line-height: 2rem;
-    background-color: whitesmoke;
     background-color: transparent;
     color: #000000c1;
     outline: none;
     border: none;
+    text-overflow: ellipsis;
     font-size: medium;
     padding: 0 1rem;
     border-radius: 10px;
@@ -66,3 +66,4 @@
     background-color: skyblue;
     color: white;
 }
+

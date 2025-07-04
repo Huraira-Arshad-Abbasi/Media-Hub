@@ -1,11 +1,19 @@
 import { useSearch } from '../context/SearchContext'
 import '../styles/search.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 export default function Search () {
   const [Localsearch , setLocalSearch] = useState({term: '', type: 'images'})
-  const {setSearch} = useSearch()
+  const {search, setSearch} = useSearch()
+
+  useEffect(() => {
+    if (Search) {
+      setLocalSearch(search)
+      
+    }
+  }, [search]);
+  
   const handleSearch = () =>{
     setSearch(Localsearch)
   }

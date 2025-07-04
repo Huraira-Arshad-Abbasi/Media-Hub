@@ -2,13 +2,14 @@ import Search from "./Search";
 import '../styles/navbar.css'
 
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
     const searchBar = useRef(null);
     const nav__bg = useRef(null);
     useEffect(() => {
         window.onscroll = function() {
-            if (window.scrollY > 200) { // If scrolling has started
+            if (window.scrollY > 230) { // If scrolling has started
                 searchBar.current.classList.add('show-search'); // Show the search bar
                 nav__bg.current.classList.add('nav__bg')
             } else {
@@ -20,17 +21,14 @@ export default function Navbar() {
 
     return (
         <nav ref={nav__bg} className="navbar">
-            {/* logo */}
             <div className="logo">
-                <a href="">Media<span>Hub</span></a>
+                <Link to="/">Media<span>Hub</span></Link>
             </div>
-            {/* search bar */}
             <div className="searchBar" ref={searchBar}>
             <Search />
             </div>
-            {/* about us */}
-            <div className="about">
-                <a href="">About</a>
+            <div className="aboutLink">
+                <Link to="/About">About</Link>
             </div>
         </nav>
     )

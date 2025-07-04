@@ -1,8 +1,7 @@
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    /* background-color: #182b38; */
     color: white;
     padding: 1rem 0;
     position: fixed;
@@ -49,18 +48,46 @@ a {
     opacity: 1;
     transition: opacity 3s ;
 }
-.about {
+.aboutLink {
     margin: 0 2rem;
     margin-left: auto;
     font-size: large;
     font-weight: bold;
     
 }
-.about > a {
+.aboutLink > a {
     color: yellowgreen;
     text-decoration: none;
 }
-.about> a:hover{
+.aboutLink> a:hover{
     color: white;
     transition: all 1s;
+}
+
+@media screen and (max-width: 768px) {
+   nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    justify-content: center;
+   }
+    .logo {
+        outline: none;
+        grid-area: 1/1;
+        margin: auto;
+
+    }
+    .aboutLink {
+        
+        grid-area: 1/2;
+         margin: auto;
+    }
+    .searchBar{
+        grid-area: 2/1/2/3;
+        width: 60%;
+    }
+    .nav__bg{
+        background-color: #182b38;
+    }
+    
 }

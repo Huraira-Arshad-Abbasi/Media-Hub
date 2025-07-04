@@ -1,4 +1,11 @@
-/* MediaItem.css */
-
+.mediaGallery{
+    padding: 2rem 0;
+    margin: auto;
+}
+.mediaGallery > h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2rem;
+    margin: 2rem auto;
+}
 
   

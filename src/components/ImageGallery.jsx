@@ -3,32 +3,48 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 // import MediaItem from './MediaItem';
 import Loader from './Loader'
+// import PropTypes from 'prop-types'
+import { useSearch } from '../context/SearchContext'
 
 export default function ImageGallery () {
   const [images, setImages] = useState([])
   const [images2, setImages2] = useState([])
   const [images3, setImages3] = useState([])
   const [loading, setLoading] = useState(true)
-
+  const { search } = useSearch()
+  let term = search?.term || 'nature'
+  
   useEffect(() => {
+     
+    
     const fetchImages = async () => {
       try {
-        const response = await axios.get('https://api.unsplash.com/photos', {
+        const pexelsRes = await axios.get('https://api.pexels.com/v1/search', {
           headers: {
             Authorization:
-              'Client-ID 3ZTaU9LHcJMp-bptWXR_81txbNq6ndPIqjmmFuWDl9k'
+              'GFXOzSk0pLLKaLPm1JCV2ZJgFuoy6fVFKj0daeeaKjbQu3YP4dSUj5SA'
           },
           params: {
-            count: 20
+            query: term, 
+            per_page: 22
           }
         })
-        let originalData = response.data
-        let reversedData = [...originalData].reverse()
-        let shuffledData = reversedData.slice(1, 10)
 
-        setImages(originalData)
-        setImages2(reversedData)
-        setImages3(shuffledData)
+        const pexelsImages = pexelsRes.data.photos.map(img => ({
+          id: `${img.id}`,
+          src: img.src.medium,
+          original: img.src.original,
+          alt: img.alt || 'Pexels image'
+        }))
+
+        let onethird = Math.ceil(pexelsImages.length / 3)
+        let col1 = pexelsImages.slice(0, onethird)
+        let col2 = pexelsImages.slice(onethird, onethird * 2)
+        let col3 = pexelsImages.slice(onethird * 2, pexelsImages.length)
+
+        setImages(col1)
+        setImages2(col2)
+        setImages3(col3)
       } catch (error) {
         console.error('Error fetching images:', error)
       } finally {
@@ -36,8 +52,9 @@ export default function ImageGallery () {
       }
     }
     fetchImages()
+
     // eslint-disable-next-line react/prop-types
-  }, [])
+  }, [term])
 
   const handleDownload = async url => {
     try {
@@ -66,9 +83,9 @@ export default function ImageGallery () {
           return (
             <div className='img' key={image.id}>
               <div className='img__box'>
-                <img src={image.urls.small} alt={image.alt_description} />
-                <div className='desc'>{image.alt_description}</div>
-                <button onClick={() => handleDownload(image.urls.full)}>
+                <img src={image.original} alt={image.alt} />
+                <div className='desc'>{image.alt}</div>
+                <button onClick={() => handleDownload(image.original)}>
                   Download
                 </button>
               </div>
@@ -81,9 +98,9 @@ export default function ImageGallery () {
           return (
             <div className='img' key={image.id}>
               <div className='img__box'>
-                <img src={image.urls.small} alt={image.alt_description} />
-                <div className='desc'>{image.alt_description}</div>
-                <button onClick={() => handleDownload(image.urls.full)}>
+                <img src={image.original} alt={image.alt} />
+                <div className='desc'>{image.alt}</div>
+                <button onClick={() => handleDownload(image.original)}>
                   Download
                 </button>
               </div>
@@ -96,9 +113,9 @@ export default function ImageGallery () {
           return (
             <div className='img' key={image.id}>
               <div className='img__box'>
-                <img src={image.urls.small} alt={image.alt_description} />
-                <div className='desc'>{image.alt_description}</div>
-                <button onClick={() => handleDownload(image.urls.full)}>
+                <img src={image.original} alt={image.alt} />
+                <div className='desc'>{image.alt}</div>
+                <button onClick={() => handleDownload(image.original)}>
                   Download
                 </button>
               </div>
@@ -109,3 +126,7 @@ export default function ImageGallery () {
     </div>
   )
 }
+
+// ImageGallery.propTypes = {
+//   term: PropTypes.string
+// }

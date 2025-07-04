@@ -1,16 +1,36 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
-// import MediaGallery from './components/MediaGallery'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import MediaItem from './components/MediaItem'
-function App() {
+import About from './components/About'
+function App () {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: (
+        <>
+          <Navbar />
+          <MediaItem />
+          <Footer />
+        </>
+      )
+    },
+    {
+      path: '/About',
+      element: (
+        <>
+          <Navbar />
+          <About />
+          <Footer />
+        </>
+      )
+    }
+  ])
 
   return (
     <>
-      <Navbar />
-      <MediaItem/>
-      {/* <MediaGallery/> */}
-      <Footer/>
+      <RouterProvider router={router} />
     </>
   )
 }
