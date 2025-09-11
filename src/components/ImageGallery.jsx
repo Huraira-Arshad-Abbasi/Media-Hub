@@ -104,8 +104,8 @@ export default function ImageGallery () {
                   Download
                 </button>
               </div>
-            </div>
-          )
+            </div>)
+          
         })}
       </div>
       <div className='col__3'>

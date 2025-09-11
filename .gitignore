@@ -11,12 +11,15 @@ node_modules
 dist
 dist-ssr
 *.local
+MediaHub.txt
+
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
+*.txt
 *.suo
 *.ntvs*
 *.njsproj

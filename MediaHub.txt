@@ -1,6 +1,5 @@
 checkpoint:
-        1: responsiveness of components(4,5)
-        2: About section (6)
-        3: audio section (7)
-        3: Final check (8,9)
-        last date 10-july
+        1: responsiveness of components(4,5) ✔
+        2: audio section (6)
+        3: Final check (7)
+        last date 5-sep
